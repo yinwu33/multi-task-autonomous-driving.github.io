@@ -1,37 +1,62 @@
-## Welcome to GitHub Pages
+# Introduction
 
-You can use the [editor on GitHub](https://github.com/yinwu33/multi-task-autonomous-driving.github.io/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+This study is a "project intership" from Karlsruhe Institute of Technology, which is a three-people team work by Bangyu Zhu, Eugen Ernst and me (Yin Wu). 
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Perception of driving scenes is one of the main topics in autonomous driving domain, which is based on several tasks, for example: semantic segmentation, object detection, depth estimation etc. In recent years, vast amount of methods have been introduced for these specific problems. However, most of them consider one specific single task. One reason for the lack of multi-task learning is that the most available datasets do not include all labesl which are necessary for all tasks simultaneosly.
 
-### Markdown
+In this study, we propose a multi-task learing neural network which can be used for training a multi-task learning with labels of different datasets. We compare the multi-task network with its corresponding single task network in terms of performance and computational speed.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+We show that the multi-task learning with the introduced training method is able to learn the tasks with labels from two different datasets. Furthermore, the multi-task learning show in two of three single task a better performance and real-time capability.
 
-```markdown
-Syntax highlighted code block
+# Problem Setup
 
-# Header 1
-## Header 2
-### Header 3
+## Semantic Segmentation
 
-- Bulleted
-- List
+![semantic image](./src/image/3/A2D2_image.png)
+![semantic ground truth](./src/image/3/A2D2_GT_SEM.png)
 
-1. Numbered
-2. List
+The goal of this task is to obtain the static elements of the driving scene. We consider three classes of elements the most important: 
 
-**Bold** and _Italic_ and `Code` text
+* drivable area
+* non-drivable area
+* accurate lane marking
 
-[Link](url) and ![Image](src)
-```
+The first two classes tell an auto where to drive. Meanwhile, the \textit{accurate lane marking} enhance the cognition of the driving scene to obey the traffic rules.
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
-### Jekyll Themes
+## Object Detection
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/yinwu33/multi-task-autonomous-driving.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+![OD image](./src/image/2/A2D2_image.png)
+![OD ground truth](./src/image/2/A2D2_GT_DET.png)
 
-### Support or Contact
+Object detection is considered mainly for the dynamic elements in street scenes. We have 7 classes including
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+* vehichles (6 classes)
+  * cars
+  * bicycles
+  * trucks
+  * small vehicles
+  * utility vehicles
+  * tractors
+* pedestrians (1 class)
+
+Besides, we detect two additional static elements during object detection task:
+
+* traffic signal
+* traffic sign
+
+## Depth Estimation
+
+![OD image](./src/image/2/CS_image.png)
+![OD ground truth](./src/image/2/CS_GT_DEPTH.png)
+
+In comparison with the first two tasks, depth estimation supplies a three-dimensional depth information of the driving scene. In our training, we use the disparity to substitute depth since it is directly supplied from the dataset.
+
+# Experiments
+
+This project is based on 
+* pytorch 1.5.0
+
+# Results
+
+# Reference
