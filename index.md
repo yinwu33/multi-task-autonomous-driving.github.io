@@ -54,7 +54,7 @@ In comparison with the first two tasks, depth estimation supplies a three-dimens
 
 # Experiments
 
-![structure](./src/image/multi.png)
+![structure](./src/image/structure.png)
 
 The structure of our multi-task neural network is mainly based on [ResUNet](https://arxiv.org/abs/1904.00592), [CenterNet](https://arxiv.org/abs/1904.08189) with two datasets for three tasks.
 
