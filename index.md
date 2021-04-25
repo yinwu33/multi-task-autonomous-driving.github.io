@@ -9,6 +9,10 @@ In this study, we propose a multi-task learing neural network which can be used 
 
 We show that the multi-task learning with the introduced training method is able to learn the tasks with labels from two different datasets. Furthermore, the multi-task learning show in two of three single task a better performance and real-time capability.
 
+## Keywords
+
+multi-task learning, semantic segmentation, object detection, depth estimation, multi-source transfer learning, pytorch, opencv
+
 # Problem Setup
 ## Semantic Segmentation
 
@@ -22,7 +26,6 @@ The goal of this task is to obtain the static elements of the driving scene. We 
 * accurate lane marking
 
 The first two classes tell an auto where to drive. Meanwhile, the \textit{accurate lane marking} enhance the cognition of the driving scene to obey the traffic rules.
-
 
 ## Object Detection
 
