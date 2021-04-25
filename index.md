@@ -1,6 +1,6 @@
 # Introduction
 
-This study is a "project intership" from Karlsruhe Institute of Technology, which is a three-people team work by Bangyu Zhu, Eugen Ernst and me (Yin Wu). 
+This study is a "project intership" from Karlsruhe Institute of Technology, which is a three-people team work by Bangyu Zhu, Eugen Ernst and me (Yin Wu). We appreciate our mentors Vivekanandan Abhishek and Joseph Tim from AIFB institute.
 
 Perception of driving scenes is one of the main topics in autonomous driving domain, which is based on several tasks, for example: semantic segmentation, object detection, depth estimation etc. In recent years, vast amount of methods have been introduced for these specific problems. However, most of them consider one specific single task. One reason for the lack of multi-task learning is that the most available datasets do not include all labesl which are necessary for all tasks simultaneosly.
 
@@ -9,6 +9,8 @@ In this study, we propose a multi-task learing neural network which can be used 
 We show that the multi-task learning with the introduced training method is able to learn the tasks with labels from two different datasets. Furthermore, the multi-task learning show in two of three single task a better performance and real-time capability.
 
 # Problem Setup
+
+![structure](./src/image/multi.png)
 
 ## Semantic Segmentation
 
@@ -54,9 +56,28 @@ In comparison with the first two tasks, depth estimation supplies a three-dimens
 
 # Experiments
 
-This project is based on 
-* pytorch 1.5.0
+## Datasets
+
+Tasks for [A2D2](https://www.a2d2.audi/a2d2/en/download.html): 
+
+* Semantic Segmentation
+* Object Detection
+
+Tasks for [Cityscapes](https://www.cityscapes-dataset.com/downloads/): 
+
+* Semantic Segmentation
+* Depth Estimation
 
 # Results
+
+![compare](src/image/compare.png)
+
+
+|   | mIoU | mAP | RMSE | GPU Mem Usage | Computation Speed |
+|---|------|-----|------|---------------|-------------------|
+| Multi-Task Network | 85.57 | 10.9 | 0.0678 | 611 Mb | 45 fps |
+| ResUNet (SemSeg) | 82.53 | | | 587 Mb | 39 fps |
+| CenterNet | | 11.9 | | 759 Mb | 18 fps |
+| ResUNet (Depth) | | | 0.0706 | 587 Mb | 21 fps |
 
 # Reference
